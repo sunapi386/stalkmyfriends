@@ -23,6 +23,7 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
+		
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -41,8 +42,6 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facebook Options <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -55,11 +54,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form>
+                   
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
@@ -68,11 +63,14 @@
         <div class="container">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
+			<iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"></iframe>
             <div class="hero-unit">
-                <h1>Hello, Stalker!</h1>
+                <h1>Hello</h1>
                 <p>This is an app that tracks where your friends are currently and where they last checked in.</p>
-				
-				
+
+
 <p>Click the button to get your coordinates:</p>
 <p><button onclick="getLocation()">Grab my location</button></p>
 <script>
@@ -109,23 +107,21 @@ function showPosition(position)
             <hr>
 
             <footer>
-                <p>&copy; Stalk My Friends 2012</p>
+                <p>&copy; Stalk My Friends
+                  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+                  <script src="js/vendor/bootstrap.min.js"></script>
+
+                  <script src="js/main.js"></script>
+</p>
             </footer>
-
-        </div> <!-- /container -->
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
-
-        <script>
+        </div>
+            <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+                  </script>
     </body>
 </html>
