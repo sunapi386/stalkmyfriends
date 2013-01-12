@@ -59,6 +59,14 @@ var marker = new google.maps.Marker({
       position: pos2,    
       map: map    
     });
+    
+    var infowindow = new google.maps.InfoWindow({
+  content:"My current colation"
+  });
+
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  });
 
             map.setCenter(pos);
             map.setZoom(15)
