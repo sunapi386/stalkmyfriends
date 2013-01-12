@@ -21,6 +21,76 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-bzw14IMpa0GRxKApi8KxbKULqCXBxEg&sensor=true">
+    </script>
+
+    <script>
+      var map;
+	  var pos2 = new google.maps.LatLng(37.869565, -122.258786);
+
+      function initialize() {
+        var mapOptions = {
+          zoom: 6,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+
+        // Try HTML5 geolocation
+        if(navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = new google.maps.LatLng(position.coords.latitude,
+                                             position.coords.longitude);
+
+
+var marker = new google.maps.Marker({    
+      position: pos,    
+      map: map    
+    });
+	
+	var marker2 = new google.maps.Marker({    
+      position: pos2,    
+      map: map    
+    });
+
+            map.setCenter(pos);
+            map.setZoom(15)
+          }, function() {
+            handleNoGeolocation(true);
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleNoGeolocation(false);
+        }
+      }
+
+      function handleNoGeolocation(errorFlag) {
+        if (errorFlag) {
+          var content = 'Error: The Geolocation service failed.';
+        } else {
+          var content = 'Error: Your browser doesn\'t support geolocation.';
+        }
+
+        var options = {
+          map: map,
+          position: new google.maps.LatLng(60, 105),
+          content: content
+        };
+
+        var infowindow = new google.maps.InfoWindow(options);
+        map.setCenter(options.position);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
     </head>
     <body>
 		
@@ -55,7 +125,7 @@
                             </li>
                         </ul>
                    
-                    </div><!--/.nav-collapse -->
+                  </div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>
@@ -68,6 +138,13 @@
         style="border:none; width:450px; height:80px"></iframe>
             <div class="hero-unit">
                 <h1>Hello</h1>
+                </table>
+<table height="500" width="100%" border="0">
+  <tr>
+    <td id="map_canvas" style="height:100%"></td>
+    <td valign="top" width="200">Friend List</td>
+  </tr>
+</table>
                 <p>This is an app that tracks where your friends are currently and where they last checked in.</p>
 
 
